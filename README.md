@@ -4,7 +4,7 @@
 [game]: https://you-create.github.io/flat-candies
 [game-openprocessing]: https://www.openprocessing.org/sketch/854109
 
-**[Play the game][game]** :candy:
+**[Play the game][game]** :candy: New to the game? Read on!
 
 [![](screenshot.png)][game]
 

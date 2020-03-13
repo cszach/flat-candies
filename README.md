@@ -33,6 +33,8 @@ sprite, it will remain shrunken for 5 seconds.
 - Second player: Arrow keys to move, `Ctrl` key to shrink.
 - Third player: `I`, `J`, `K`, `L` to move up, left, down, and right,
   respectively. `H` to shrink.
+- A friend needs to go to the :toilet:? Pause the game with `P`! Be nice and
+  don't cheat. :wink:
 
 Ready to play? **[Go!][game]**
 

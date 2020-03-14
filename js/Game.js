@@ -7,12 +7,10 @@
 /**
  * Class for games.
  *
- * A game is a container for everything that happens
- * inside the game. Players, sprites, objects, etc.
- * and how these interact with each other.
+ * A game is a container for everything that happens inside the game. Players,
+ * sprites, objects, etc. and how these interact with each other.
  *
- * A game needs data from an instance of GameData
- * (see GameData.js) to function.
+ * A game needs data from an instance of GameData (see GameData.js) to function.
  */
 class Game {
 
@@ -137,9 +135,8 @@ class Game {
 		 * This command should be executed before starting the game.
 		 * Once the game has started, use placeNewPellets instead.
 		 *
-		 * When placing pellets using this method, attributes of the
-		 * pellets (size, color, value) are determined using the
-		 * assigned GameData.
+		 * When placing pellets using this method, attributes of the pellets
+		 * (size, color, value) are determined using the assigned GameData.
 		 *
 		 * @param {number} The initial quantity of pellets (optional)
 		 */
@@ -307,7 +304,7 @@ class Game {
 		/**
 		 * Updates this game's framesElapsed attribute.
 		 *
-		 * @param {number} frameCount Number of frames elapsed since when the game began.
+		 * @param {number} frameCount Number of frames elapsed since when the game began
 		 */
 		update( frameCount ) {
 
@@ -318,8 +315,8 @@ class Game {
 		/**
 		 * Pauses this game.
 		 *
-		 * If this game is already paused, calling this method won't
-		 * unpause it. Use continue instead.
+		 * If this game is already paused, calling this method won't unpause it.
+		 * Use continue instead.
 		 */
 		pause() {
 

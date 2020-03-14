@@ -87,9 +87,6 @@ function keyPressed() {
 
 function addSecondPlayer() {
 
-		// let newPlayer = new Sprite( 50, null, null, 5, 5000 );
-		// newPlayer.bindKeys( UP_ARROW, LEFT_ARROW, DOWN_ARROW, RIGHT_ARROW, 17 );
-
 		let secondPlayer = game.createPlayer();
 		secondPlayer.bindKeys( UP_ARROW, LEFT_ARROW, DOWN_ARROW, RIGHT_ARROW, 17 );
 
@@ -104,9 +101,6 @@ function addSecondPlayer() {
 }
 
 function addThirdPlayer() {
-
-		// let newPlayer = new Sprite( 50, null, null, 5, 5000 );
-		// newPlayer.bindKeys( 73, 74, 75, 76, 104 ); // I, J, K, L, H
 
 		let thirdPlayer = game.createPlayer();
 		thirdPlayer.bindKeys( 73, 74, 75, 76, 72 ); // I, J, K, L, H

@@ -1,9 +1,9 @@
 /**
  * GameData.js
  *
- * This is perhaps the only file that you need to change in order
- * to adjust various factors and behaviors in the game while
- * keeping the game's natural rules intact.
+ * This is perhaps the only file that you need to change in order to adjust
+ * various factors and behaviors in the game while keeping the game's natural
+ * rules intact.
  *
  * @author Nguyen Hoang Duong
  */
@@ -11,10 +11,9 @@
 /**
  * Class for game data to be used by Game (see Game.js).
  *
- * When you create an instace of this class, default values are
- * be immediate set. If you want different default values, override
- * the default values. If you want this class to be more flexible,
- * re-implement it.
+ * When you create an instace of this class, default values are immediate set.
+ * If you want different default values, override the default values. If you
+ * want this class to be more flexible, re-implement it.
  */
 class GameData {
 

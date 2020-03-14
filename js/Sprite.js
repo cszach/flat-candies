@@ -5,8 +5,7 @@
  */
 
 /**
- * Class for a game sprite, which is controlled by
- * a player.
+ * Class for a game sprite, which is controlled by a player.
  *
  * A sprite can...
  * - ...eat pellets
@@ -43,8 +42,8 @@ class Sprite {
 		/**
 		 * Gets the physical size of this sprite.
 		 *
-		 * The size as held by Sprite.size is actually
-		 * the number of points earned by that sprite.
+		 * The size as held by Sprite.size is actually the number of points
+		 * earned by that sprite.
 		 */
 		get actualSize() {
 
@@ -52,6 +51,9 @@ class Sprite {
 
 		}
 
+		/**
+		 * Gets this sprite's number of pixels travelled per frame
+		 */
 		get step() {
 
 				return this.computeStep( this.speedFactor, this.actualSize );
@@ -135,8 +137,8 @@ class Sprite {
 		/**
 		 * Eats a pellet.
 		 *
-		 * The condition for being able to eat a particular pellet
-		 * is found in GameData and is managed in Game.
+		 * The condition for being able to eat a particular pellet is found in
+		 * GameData and is managed in Game.
 		 *
 		 * @param {object} pellet The pellet to eat
 		 * @param {object} eatenPellets An array of eaten pellets to be processed by the game
@@ -151,8 +153,8 @@ class Sprite {
 		/**
 		 * Eats a sprite.
 		 *
-		 * The condition for being able to eat a particular sprite
-		 * is found in GameData and is managed in Game.
+		 * The condition for being able to eat a particular sprite is found in
+		 * GameData and is managed in Game.
 		 *
 		 * @param {object} sprite The sprite to eat
 		 * @param {object} eatenSprites An array of eaten sprites to be processed by the game

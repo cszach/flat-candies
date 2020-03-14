@@ -57,7 +57,7 @@ class GameData {
 						newPelletsInterval: 20,
 						size: 10,
 						colors: [ 'red', 'green', 'blue' ],
-						value: ( size ) => size / 3
+						value: 1
 
 				}
 

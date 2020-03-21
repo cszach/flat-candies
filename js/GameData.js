@@ -17,73 +17,73 @@
  */
 class GameData {
 
-		constructor( canvas, frameRate ) {
+	constructor( canvas, frameRate ) {
 
-				this.env = {
+		this.env = {
 
-						width: canvas.width,
-						height: canvas.height
+			width: canvas.width,
+			height: canvas.height
 
-				}
+		};
 
-				this.game = {
+		this.game = {
 
-						frameRate,
+			frameRate,
 
-				},
+		},
 
-				this.sprites = {
+		this.sprites = {
 
-						size: 50,
-						colors: [
-								[ '#ef5350', '#66bb6a' ],
-								[ '#7e57c2', '#ffee58' ],
-								[ '#42a5f5', '#ffa726' ]
-						],
-						speedFactor: 5,
-						speed: ( factor, size ) => ( factor * 100 ) / size,
-						value: ( size ) => size / 3,
-						shrinkFactor: 5,
-						shrinkDuration: 5000,
-						canEatPellet: ( sprite, pellet ) => Math.hypot(
-								abs( sprite.pos.x - pellet.pos.x ),
-								abs( sprite.pos.y - pellet.pos.y )
-						) < sprite.actualSize / 2 + pellet.size / 2,
-						canEatSprite: ( sprite, otherSprite ) => Math.hypot(
-								abs( sprite.pos.x - otherSprite.pos.x ),
-								abs( sprite.pos.y - otherSprite.pos.y )
-						) < sprite.actualSize / 2 && sprite.actualSize > otherSprite.actualSize * 1.2
+			size: 50,
+			colors: [
+				[ '#ef5350', '#66bb6a' ],
+				[ '#7e57c2', '#ffee58' ],
+				[ '#42a5f5', '#ffa726' ]
+			],
+			speedFactor: 5,
+			speed: ( factor, size ) => ( factor * 100 ) / size,
+			value: ( size ) => size / 3,
+			shrinkFactor: 5,
+			shrinkDuration: 5000,
+			canEatPellet: ( sprite, pellet ) => Math.hypot(
+				abs( sprite.pos.x - pellet.pos.x ),
+				abs( sprite.pos.y - pellet.pos.y )
+			) < sprite.actualSize / 2 + pellet.size / 2,
+			canEatSprite: ( sprite, otherSprite ) => Math.hypot(
+				abs( sprite.pos.x - otherSprite.pos.x ),
+				abs( sprite.pos.y - otherSprite.pos.y )
+			) < sprite.actualSize / 2 && sprite.actualSize > otherSprite.actualSize * 1.2
 
-				}
+		};
 
-				this.pellets = {
+		this.pellets = {
 
-						initialQuantity: round( random( 50, 100 ) ),
-						newQuantity: 1,
-						newPelletsInterval: 20,
-						size: 10,
-						colors: [ 'red', 'green', 'blue' ],
-						value: 1
+			initialQuantity: round( random( 50, 100 ) ),
+			newQuantity: 1,
+			newPelletsInterval: 20,
+			size: 10,
+			colors: [ 'red', 'green', 'blue' ],
+			value: 1
 
-				}
+		};
 
-				this.blackHoles = {
+		this.blackHoles = {
 
-						size: 230,
-						power: 1,
-						lifeSpan: this.game.frameRate * 7,
-						spawnInterval: this.game.frameRate * 12,
-						canSuckPellet: ( blackHole, pellet ) => Math.hypot(
-								abs( blackHole.pos.x - pellet.pos.x ),
-								abs( blackHole.pos.y - pellet.pos.y )
-						) < blackHole.size / 2 + pellet.size / 2,
-						canSuckSprite: ( blackHole, sprite ) => Math.hypot(
-								abs( blackHole.pos.x - sprite.pos.x ),
-								abs( blackHole.pos.y - sprite.pos.y )
-						) < blackHole.size / 2 + sprite.actualSize / 2
+			size: 230,
+			power: 1,
+			lifeSpan: this.game.frameRate * 7,
+			spawnInterval: this.game.frameRate * 12,
+			canSuckPellet: ( blackHole, pellet ) => Math.hypot(
+				abs( blackHole.pos.x - pellet.pos.x ),
+				abs( blackHole.pos.y - pellet.pos.y )
+			) < blackHole.size / 2 + pellet.size / 2,
+			canSuckSprite: ( blackHole, sprite ) => Math.hypot(
+				abs( blackHole.pos.x - sprite.pos.x ),
+				abs( blackHole.pos.y - sprite.pos.y )
+			) < blackHole.size / 2 + sprite.actualSize / 2
 
-				}
+		};
 
-		}
+	}
 
 }

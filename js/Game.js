@@ -33,8 +33,10 @@ class Game {
 
 				this.players = []; // Players in game
 				this.pellets = []; // Pellets available for eaten in game
+				this.blackHoles = []; // Black holes
 				this.eatenPellets = []; // Array of eaten pellets, used to remove pellets from this.pellets
 				this.eatenSprites = []; // Same as this.eatenPellets but for sprites
+				this.deadBlackHoles = []; // Same as this.eatenSprites but for black holes
 
 				this.framesElapsed = 0; // Number of frames elapsed as the game happens
 
@@ -183,6 +185,26 @@ class Game {
 
 		}
 
+		spawnBlackHole( interval ) {
+
+				if ( frameCount % interval === 0 ) {
+
+					let newBlackHole = new BlackHole(
+							this.data.blackHoles.size,
+							this.data.blackHoles.power,
+							this.data.blackHoles.lifeSpan
+					);
+
+					this.blackHoles.push( newBlackHole );
+					newBlackHole.spawn(
+						round( random( this.env.width ) ),
+						round( random( this.env.height ) )
+					);
+
+				}
+
+		}
+
 		/**
 		 * Sets the game ready for running.
 		 */
@@ -213,6 +235,69 @@ class Game {
 				// or is currently paused.
 				if ( ! this.started || this.paused ) { return; }
 
+				// Spawn a lil' black holes
+
+				this.spawnBlackHole( this.data.blackHoles.spawnInterval );
+
+				// Control black holes
+
+				this.blackHoles.forEach( ( blackHole ) => {
+
+						blackHole.display();
+
+						this.pellets.forEach( ( pellet ) => {
+
+								if ( this.data.blackHoles.canSuckPellet( blackHole, pellet ) ) {
+
+										blackHole.suckPellet( pellet, this.eatenPellets );
+
+								}
+
+						}, this );
+
+						this.players.forEach( ( player ) => {
+
+								if ( this.data.blackHoles.canSuckSprite( blackHole, player ) ) {
+
+										blackHole.suckSprite( player );
+										if ( player.actualSize <= 0 ) {
+
+												this.eatenSprites.push( player );
+
+										}
+
+								}
+
+						}, this );
+
+						if ( BlackHole.isDead( blackHole ) ) {
+
+								this.deadBlackHoles.push( blackHole );
+
+						}
+
+				}, this );
+
+				// Remove dead black holes
+
+				this.deadBlackHoles.forEach( ( blackHole ) => {
+
+						this.blackHoles.splice( this.deadBlackHoles.indexOf( blackHole ), 1 );
+
+				} );
+
+				this.deadBlackHoles = [];
+
+				// Remove eaten pellets (after the black hole has swarmed it)
+
+				this.eatenPellets.forEach( ( pellet ) => {
+
+						this.pellets.splice( this.pellets.indexOf( pellet ), 1 );
+
+				}, this );
+
+				this.eatenPellets = [];
+
 				// Control the sprites according to the pressed keys.
 
 				this.players.forEach( ( player ) => {
@@ -227,7 +312,7 @@ class Game {
 
 						this.pellets.forEach( ( pellet ) => {
 
-								if ( this.data.game.canEatPellet( player, pellet ) ) {
+								if ( this.data.sprites.canEatPellet( player, pellet ) ) {
 
 										player.eatPellet( pellet, this.eatenPellets );
 
@@ -253,12 +338,12 @@ class Game {
 
 						this.players.slice( i + 1 ).forEach( ( otherPlayer ) => {
 
-								if ( this.data.game.canEatSprite( player, otherPlayer ) ) {
+								if ( this.data.sprites.canEatSprite( player, otherPlayer ) ) {
 
 										otherPlayer.value = this.data.sprites.value( otherPlayer.size );
 										player.eatOtherSprite( otherPlayer, this.eatenSprites );
 
-								} else if ( this.data.game.canEatSprite( otherPlayer, player ) ) {
+								} else if ( this.data.sprites.canEatSprite( otherPlayer, player ) ) {
 
 										player.value = this.data.sprites.value( player.size );
 										otherPlayer.eatOtherSprite( player, this.eatenSprites );

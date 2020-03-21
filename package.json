@@ -1,0 +1,27 @@
+{
+  "name": "flat-candies",
+  "description": "An action game made in p5.js",
+  "main": "js/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/you-create/flat-candies.git"
+  },
+  "keywords": [
+    "game",
+    "html5-game",
+    "action-game",
+    "p5",
+    "p5js-game"
+  ],
+  "author": {
+    "name": "Nguyen Hoang Duong",
+    "email": "you_create@protonmail.com"
+  },
+  "license": "CC-BY-SA-3.0",
+  "bugs": {
+    "url": "https://github.com/you-create/flat-candies/issues",
+    "email": "you_create@protonmail.com"
+  },
+  "homepage": "https://you-create.github.io/flat-candies",
+  "dependencies": {}
+}

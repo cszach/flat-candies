@@ -7,12 +7,14 @@
  */
 
 let game, button;
+const FPS = 60;
 
 function setup() {
 
 		// Setup our canvas
 
 		let canvas = createCanvas( windowWidth, windowHeight );
+		frameRate( FPS );
 
 		// Drawing settings
 
@@ -20,7 +22,7 @@ function setup() {
 
 		// Initialize game
 
-		let data = new GameData();
+		let data = new GameData( canvas, FPS );
 		game = new Game( canvas, data );
 
 		// Create the first player

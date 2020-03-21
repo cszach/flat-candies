@@ -1,5 +1,6 @@
 {
   "name": "flat-candies",
+  "version": "v1.0.0-beta2",
   "description": "An action game made in p5.js",
   "main": "js/main.js",
   "repository": {

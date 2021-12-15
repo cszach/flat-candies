@@ -1,7 +1,7 @@
 # Flat Candies
 
 [p5]: https://p5js.org/
-[game]: https://you-create.github.io/flat-candies
+[game]: https://novakcgx.me/flat-candies
 [game-openprocessing]: https://www.openprocessing.org/sketch/854109
 
 **[Play the game][game]** :candy: New to the game? Read on!
